@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="description" content="my place">
+<meta name="author" content="fangliang">
+<title>无魂</title>
+
+<link href="resources/bootstrap331dist/css/bootstrap.css" rel="stylesheet">
+<link href="resources/font-awesome-420/css/font-awesome.min.css" rel="stylesheet">
+<link href="style.css" rel="stylesheet">
+<script src="resources/jquery/jquery-1.11.1.min.js"></script>
+<script src="resources/bootstrap331dist/js/bootstrap.min.js"></script>
+<script src="resources/avos/av-mini.js"></script>
+<script src="av-init.js"></script>
+<script src="script.js"></script>
+<script>
+	$(function(){		
+		// 加载标签
+		loadTag();
+		// 加载文章
+		queryPost(0, 8);
+		// 注册UI事件
+		registEvent();
+	});
+</script>
+</head>
+
+<body>
+  <div class="wrapper">
+
+    <div class="dashboard-left">
+      <div class="face-img"></div>
+      <div class="face-text">
+        <span>发现</span><span>·</span><span>表达</span>
+      </div>
+      <div id="tagPanel"></div>
+    </div>
+
+    <div class="main-content">
+      <div id="newPostItem">
+        <div class="placeholder bg-white top-radius">有什么想法？</div>
+        <div id="newPostBoxContainer" class="box-container hide">
+          <div class="post-box bg-white padding15" contentEditable=true spellcheck="false"></div>
+        </div>
+        <div class="toolbar bg-white hide">
+          <button class="btn btn-success create-post-btn" id="createPostBtn" disabled type="button" title="Ctrl Enter">保存</button>
+        </div>
+      </div>
+      <div id="postList">
+        <div id="loadingPostInfo" class="hide">获取数据中...</div>
+        <div id="morePost" class="hide">更多</div>
+      </div>
+    </div>
+
+    <div class="dashboard-right"></div>
+  </div>
+
+  <!-- 模板 -->
+  <div id="templates" style="display: none">
+
+    <span id="tagTempl" class="tag"></span>
+
+    <div id="postItemTempl" class="post-item">
+      <div class="post-box-container"></div>
+      <div class="post-info bg-white">
+        <span class="more" title="更多">···</span>
+        <span class="comment">评论</span>
+        <span class="edit hide" title="not finished yet.">编辑</span>
+        <span class="delete hide">删除</span>
+        <span class="createdDate">2014-12-07</span>
+        
+      </div>
+      <div class="comment-info hide">
+        <div class="sort-asc"><i class="fa fa-sort-asc comment-arrow"></i></div>
+        <div class="comment-list"></div>
+        <div class="new-comment-item">
+          <div class="placeholder"><i class="fa fa-comment-o ">...</i></div>
+          <div class="comment-box-container hide">
+            <div class="comment-box padding15" contentEditable=true spellcheck="false"></div>
+          </div>
+          <div class="toolbar hide">
+            <button class="create-comment-btn btn btn-success" disabled type="button" title="Ctrl Enter">保存</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="commentItemTempl" class="comment-item">
+      <div class="comment-box-container"></div>
+    </div>
+  </div>
+</body>
+</html>
